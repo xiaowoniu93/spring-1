@@ -24,4 +24,15 @@
 		<constructor-arg name="crop" value="长城"></constructor-arg>
 		<constructor-arg name="maxSpeed" value="185"></constructor-arg>
 	</bean>
+	<bean id="car3" class="com.xszheng.demo2.Car">
+		<property name="brand" value="HAVAL"></property>
+		<property name="crop" value="长城"></property>
+		<property name="price" value="103000"></property>
+		<property name="maxSpeed" value="185"></property>
+	</bean>
+	
+	<bean id="person" class="com.xszheng.demo3.Person">
+		<property name="name" value="小明"></property>
+		<property name="car" ref="car3"></property>
+	</bean>
 </beans>

@@ -1,5 +1,8 @@
 package com.xszheng.demo2;
 
+import lombok.Data;
+
+@Data
 public class Car {
 
 	private String brand;
@@ -9,6 +12,10 @@ public class Car {
 	private double price;
 	
 	private int maxSpeed;
+
+	public Car() {
+		super();
+	}
 
 	public Car(String brand, String crop, double price) {
 		super();
