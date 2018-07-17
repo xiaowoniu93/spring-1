@@ -10,12 +10,14 @@
 		3、不指定 id 属性时，默认的 id 是 com.xszheng.HelloWorld#0 即（包名.类名#自然数）
 	-->
 	<bean class="com.xszheng.demo1.HelloWorld">
-		<property name="name" value="spring"></property>
+		<property name="name">
+			<value><![CDATA[<spring>]]></value>
+		</property>
 	</bean>
 	
 	<!-- 使用构造器方式来创建 bean 时，可以使用 index 和 type 属性来制定参数的位置以及类型 -->
 	<bean id="car1" class="com.xszheng.demo2.Car">
-		<constructor-arg name="brand" value="HAVAL" index="0"></constructor-arg>
+		<constructor-arg name="brand" index="0"><value>HAVAL</value></constructor-arg>
 		<constructor-arg name="crop" value="长城"></constructor-arg>
 		<constructor-arg name="price" value="103000" type="double"></constructor-arg>
 	</bean>
