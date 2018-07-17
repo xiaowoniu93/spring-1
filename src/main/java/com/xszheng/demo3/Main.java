@@ -10,6 +10,12 @@ public class Main {
 		Person person = (Person) ctx.getBean("person");
 		System.out.println(person);
 		person.info();
+		
+		Person person1 = (Person) ctx.getBean("person1");
+		System.out.println("person1:"+person1);
+		
+		Person person2 = (Person) ctx.getBean("person2");
+		System.out.println("person2:"+person2);
 	}
 
 }

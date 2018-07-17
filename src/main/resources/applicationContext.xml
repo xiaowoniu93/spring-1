@@ -35,4 +35,26 @@
 		<property name="name" value="小明"></property>
 		<property name="car" ref="car3"></property>
 	</bean>
+	<bean id="person1" class="com.xszheng.demo3.Person">
+		<property name="name" value="小红"></property>
+		<property name="age" value="26"></property>
+		<property name="car">
+			<bean class="com.xszheng.demo2.Car">
+				<property name="brand" value="奥迪"></property>
+				<property name="crop" value="上海"></property>
+				<property name="price" value="200000"></property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="person2" class="com.xszheng.demo3.Person">
+		<constructor-arg name="name" value="小张"></constructor-arg>
+		<constructor-arg name="age" value="29"></constructor-arg>
+		<constructor-arg name="car">
+			<bean class="com.xszheng.demo2.Car">
+				<property name="brand" value="奥迪"></property>
+				<property name="crop" value="上海"></property>
+				<property name="maxSpeed" value="200"></property>
+			</bean>
+		</constructor-arg>
+	</bean>
 </beans>
