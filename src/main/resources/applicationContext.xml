@@ -14,6 +14,9 @@
 			<value><![CDATA[<spring>]]></value>
 		</property>
 	</bean>
+	<bean id="helloword1" class="com.xszheng.demo1.HelloWorld">
+		<property name="name"><null/></property>
+	</bean>
 	
 	<!-- 使用构造器方式来创建 bean 时，可以使用 index 和 type 属性来制定参数的位置以及类型 -->
 	<bean id="car1" class="com.xszheng.demo2.Car">

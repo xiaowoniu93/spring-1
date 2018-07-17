@@ -11,9 +11,12 @@ public class Main {
 		// ClassPathXmlApplicationContext 是 ApplicationContext 的实现类，表示从类路径下加载配置文件
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
 		// 2、获取bean
-		HelloWorld helloWorld = ctx.getBean(HelloWorld.class);
+		HelloWorld helloWorld = (HelloWorld) ctx.getBean("com.xszheng.demo1.HelloWorld#0");
 		// 3、执行方法
 		System.out.println(helloWorld);
+		
+		HelloWorld helloword1 = (HelloWorld) ctx.getBean("helloword1");
+		System.err.println(helloword1);
 	}
 
 }
