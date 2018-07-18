@@ -16,6 +16,9 @@ public class Main {
 		
 		Person person2 = (Person) ctx.getBean("person2");
 		System.out.println("person2:"+person2);
+		
+		Person person3 = (Person) ctx.getBean("person3");
+		System.out.println("person3:"+person3);
 	}
 
 }
