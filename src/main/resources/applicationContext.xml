@@ -29,22 +29,23 @@
 		<constructor-arg name="price" value="103000" type="double"></constructor-arg>
 	</bean>
 	<bean id="car2" class="com.xszheng.demo2.Car">
-		<constructor-arg name="brand" value="HAVAL"></constructor-arg>
-		<constructor-arg name="crop" value="长城"></constructor-arg>
+		<constructor-arg name="brand" value="BOYUE"></constructor-arg>
+		<constructor-arg name="crop" value="吉利"></constructor-arg>
 		<constructor-arg name="maxSpeed" value="185"></constructor-arg>
 	</bean>
 	<bean id="car3" class="com.xszheng.demo2.Car">
-		<property name="brand" value="HAVAL"></property>
-		<property name="crop" value="长城"></property>
-		<property name="price" value="103000"></property>
-		<property name="maxSpeed" value="185"></property>
+		<property name="brand" value="MAZDA"></property>
+		<property name="crop" value="福特"></property>
+		<property name="price" value="153000"></property>
+		<property name="maxSpeed" value="200"></property>
 	</bean>
 	
 	<bean id="person" class="com.xszheng.demo3.Person">
 		<property name="name" value="小明"></property>
 		<property name="age"><value>25</value></property>
 		<property name="car" ref="car3"></property>
-		<!-- 为级联属性赋值。注意：需要先注入属性，才能为级联属性赋值，否则回报异常，和Struts2 不同 -->
+		<!-- 为级联属性赋值。注意：需要先注入属性，才能为级联属性赋值，否则回报异常，和Struts2 不同。
+		【注：为级联属性赋值后，其他地方引用该bean也会受影响】 -->
 		<property name="car.brand" value="haval-H6"></property>
 	</bean>
 	<bean id="person1" class="com.xszheng.demo3.Person">
@@ -78,4 +79,21 @@
 	
 	<!-- 注解注入和配置注入可以同时存在 -->
 	<bean id="eBaiOutwayApi" class="com.xszheng.polymorphic.impl.EBaiOutwayApi"></bean>
+	
+	<bean id="winner1" class="com.xszheng.demo4.Winner">
+		<property name="name" value="张大山"></property>
+		<property name="bankCards">
+			<list>
+				<value>111111</value>
+				<value>222222</value>
+			</list>
+		</property>
+		<property name="cars">
+			<list>
+				<ref bean="car1"/>
+				<ref bean="car2"/>
+				<ref bean="car3"/>
+			</list>
+		</property>
+	</bean>
 </beans>
