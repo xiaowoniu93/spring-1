@@ -95,5 +95,24 @@
 				<ref bean="car3"/>
 			</list>
 		</property>
+		<property name="map">
+			<map>
+				<entry key="AA" value="aa"></entry>
+				<entry key="BB" value="bb"></entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- 使用 props 和 prop 标签为 Properties 类型的属性赋值 -->
+	<bean id="dataSource" class="com.xszheng.properties.DataSource">
+		<property name="props">
+			<props>
+				<!-- key 值可以随意命名 -->
+				<prop key="url1">jdbc:mysql://127.0.0.1:3306/xszheng</prop>
+				<prop key="driverClass">com.mysql.jdbc.Driver</prop>
+				<prop key="usename">root</prop>
+				<prop key="password">123456</prop>
+			</props>
+		</property>
 	</bean>
 </beans>
