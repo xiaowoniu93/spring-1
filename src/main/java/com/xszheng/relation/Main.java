@@ -1,19 +1,17 @@
-package com.xszheng.demo5;
+package com.xszheng.relation;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.xszheng.domain.Person;
+import com.xszheng.domain.Address;
 
 public class Main {
 
 	public static void main(String[] args) {
+		// bean 之间的继承
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:applicationContext_second.xml");
-		Person person = (Person) ctx.getBean("person4");
-		System.out.println(person);
-		
-		Person person1 = (Person) ctx.getBean("person5");
-		System.out.println(person1);
+		Address address = (Address) ctx.getBean("address1");
+		System.out.println(address);
 	}
 
 }

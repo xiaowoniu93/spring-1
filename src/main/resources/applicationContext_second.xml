@@ -4,7 +4,13 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="address" class="com.xszheng.domain.Address" p:city="杭州" p:street="西溪街道"></bean>
+	<!-- 若想将父bean 作为模板bean，可以添加 abstract="true"，但模板bean 不能实例化 -->
+	<bean id="address" class="com.xszheng.domain.Address" p:city="杭州" p:street="西溪街道" abstract="true"></bean>
+	<!-- 
+		使用 bean 的 parent 属性实现bean 之间的继承 
+		1、继承父bean 的配置，也可以覆盖父bean 的配置信息
+	-->
+	<bean id="address1" parent="address" p:street="闲林街道" p:city="new-hangzhou"></bean>
 	
 	<bean id="car5" class="com.xszheng.demo2.Car"
 		 p:brand="长城哈弗" p:crop="天津" p:maxSpeed="185" p:price="108000">
@@ -13,7 +19,8 @@
 	<!-- 
 		可以使用 autowire 属性指定自动装配的方式
 		byName 根据bean 的名字和当前 bean 的setter 风格的属性名进行自动装配。若有匹配的，则自动装配，若没有匹配的，则不装配
+		byType 根据bean 的类型和当前 bean 的属性的类型进行自动装配。若 IOC 容器中有一个以上的 bean 与当前 bean 的属性类型相同，则报异常
 	-->
-	<bean id="person4" class="com.xszheng.domain.Person"
-		 autowire="byType" p:name="郑小孙"></bean>
+	<bean id="person4" class="com.xszheng.domain.Person" autowire="byName" p:name="郑小孙"></bean>
+	<!-- <bean id="person5" class="com.xszheng.domain.Person" autowire="byType" p:name="郑小孙"></bean> -->
 </beans>
