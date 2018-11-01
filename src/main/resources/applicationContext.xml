@@ -132,4 +132,8 @@
 	<!-- 通过 p 命名空间为 bean 的属性赋值。需先导入 p 命名空间 -->
 	<bean id="car4" class="com.xszheng.demo2.Car" p:brand="五菱宏光" p:crop="中国" p:maxSpeed="150"
 		p:price="50000"></bean>
+		
+	<bean id="envUtil" class="com.xszheng.demo6.EnvUtil">
+		<property name="env" value="daily"></property>
+	</bean>
 </beans>
