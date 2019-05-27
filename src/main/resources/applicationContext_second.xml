@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- 若想将父bean 作为模板bean，可以添加 abstract="true"，但模板bean 不能实例化 -->
-	<bean id="address" class="com.xszheng.domain.Address" p:city="杭州" p:street="西溪街道" abstract="true"></bean>
+	<bean id="address" class="com.xszheng.domain.Address" p:city="杭州" p:street="西溪街道"></bean>
 	<!-- 
 		使用 bean 的 parent 属性实现bean 之间的继承 
 		1、继承父bean 的配置，也可以覆盖父bean 的配置信息
@@ -23,4 +23,14 @@
 	-->
 	<bean id="person4" class="com.xszheng.domain.Person" autowire="byName" p:name="郑小孙"></bean>
 	<!-- <bean id="person5" class="com.xszheng.domain.Person" autowire="byType" p:name="郑小孙"></bean> -->
+	
+	<!-- bean 如果存在循环依赖，则不能通过构造器初始化bean。应该通过 <property> 标签初始化bean，且保证有无参构造器 -->
+	<bean id="boyFriend" class="com.xszheng.domain.BoyFriend">
+		<property name="name" value="xszheng"></property>
+		<property name="girlFriend" ref="girlFriend"></property>
+	</bean>
+	<bean id="girlFriend" class="com.xszheng.domain.GirlFriend">
+		<property name="name" value="xiaobanban"></property>
+		<property name="boyFriend" ref="boyFriend"></property>
+	</bean>
 </beans>
