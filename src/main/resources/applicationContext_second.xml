@@ -33,4 +33,9 @@
 		<property name="name" value="xiaobanban"></property>
 		<property name="boyFriend" ref="boyFriend"></property>
 	</bean>
+	
+	<!-- bean的生命周期 -->
+	<bean id="beanLifeCycle" class="com.xszheng.domain.BeanLifeCycle" init-method="init" destroy-method="destroy">
+		<property name="name" value="zhangsan"></property>
+	</bean>
 </beans>
